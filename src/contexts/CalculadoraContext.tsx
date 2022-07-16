@@ -1,19 +1,25 @@
-import React, { createContext, useState } from "react"
+import React, { createContext, ReactNode, useState } from "react"
 
-const CalculatorContext = createContext(
-    {
-        result: 0,
-    }
-)
+type CalculadoraContextType = {
+    result: number,
+    setResult: React.Dispatch<React.SetStateAction<number>>
+}
+
+const initialValue = {
+    result: 0,
+    setResult: {} as React.Dispatch<React.SetStateAction<number>>
+}
+
+const CalculatorContext = createContext<CalculadoraContextType>(initialValue)
 
 export default CalculatorContext
 
 type Props = {
-    children: JSX.Element | JSX.Element[]
+    children: ReactNode
 }
 
 export function CalculatorContextProvider({ children }: Props) {
-    const [result, setResult] = useState(0)
+    const [result, setResult] = useState(initialValue.result)
 
     const value = {
         result,
