@@ -5,14 +5,14 @@ import NumberButtons from "./NumberButtons"
 const Keyboard: React.FC = (): ReactElement => {
     const { setResult } = useContext(CalculatorContext)
 
-    const numberButtons = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+    const numberButtons = [7, 8, 9, 4, 5, 6, 1, 2, 3, 0]
 
     const handleClick = (value: number) => {
         setResult(value)
     }
 
     return (
-        <div>
+        <div className="keyboard">
             {numberButtons.map((i) => (
                 <NumberButtons number={i} handleClick={() => handleClick(i)} />
             ))}

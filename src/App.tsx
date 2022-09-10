@@ -8,8 +8,10 @@ function App() {
     return (
         <div className="App">
             <CalculatorContextProvider>
-                <Display />
-                <Keyboard />
+                <div className='calculator'>
+                    <Display />
+                    <Keyboard />
+                </div>
             </CalculatorContextProvider>
         </div>
     )

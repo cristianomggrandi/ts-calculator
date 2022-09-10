@@ -7,7 +7,7 @@ const Display: React.FC = (): ReactElement => {
     console.log(result)
 
     return (
-        <span>
+        <span className="display">
             <>{result}</>
         </span>
     )
