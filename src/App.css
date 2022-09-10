@@ -1,4 +1,5 @@
 .App {
+    font-family: monospace;
     display: flex;
     width: 100vw;
     height: 100vh;
@@ -16,11 +17,16 @@
 
 .keyboard {
     display: grid;
-    grid-template-columns: repeat(4, 75px);
-    grid-template-rows: repeat(6, 75px);
+    grid-template-columns: repeat(4, 65px);
+    grid-template-rows: repeat(6, 65px);
     gap: 4px;
 }
 
-.keyboard-key {
+.number-key {
+    background-color: #0062B8;
+    color: whitesmoke;
+}
 
+.symbol-key {
+    background-color: #0062B877;
 }
