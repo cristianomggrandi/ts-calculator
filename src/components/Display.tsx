@@ -4,8 +4,6 @@ import CalculatorContext from "../contexts/CalculadoraContext"
 const Display: React.FC = (): ReactElement => {
     const { result } = useContext(CalculatorContext)
 
-    console.log(result)
-
     return (
         <span className="display">
             <>{result}</>
