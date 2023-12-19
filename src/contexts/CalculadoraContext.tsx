@@ -1,19 +1,19 @@
 import React, { createContext, ReactNode, useEffect, useState } from "react"
 
 type CalculadoraContextType = {
-    result: number,
-    setResult: React.Dispatch<React.SetStateAction<number>>,
-    current: number | undefined,
-    setCurrent: React.Dispatch<React.SetStateAction<number | undefined>>,
-    operator: string | undefined,
-    setOperator: React.Dispatch<React.SetStateAction<string | undefined>>,
+    result: string
+    setResult: React.Dispatch<React.SetStateAction<string>>
+    current: string | undefined
+    setCurrent: React.Dispatch<React.SetStateAction<string>>
+    operator: string | undefined
+    setOperator: React.Dispatch<React.SetStateAction<string | undefined>>
 }
 
 const initialValue = {
-    result: 0,
-    setResult: {} as React.Dispatch<React.SetStateAction<number>>,
-    current: undefined,
-    setCurrent: {} as React.Dispatch<React.SetStateAction<number | undefined>>,
+    result: "",
+    setResult: {} as React.Dispatch<React.SetStateAction<string>>,
+    current: "",
+    setCurrent: {} as React.Dispatch<React.SetStateAction<string>>,
     operator: undefined,
     setOperator: {} as React.Dispatch<React.SetStateAction<string | undefined>>,
 }
@@ -26,10 +26,10 @@ type Props = {
     children: ReactNode
 }
 
-export function CalculatorContextProvider({ children }: Props) {
-    const [result, setResult] = useState(initialValue.result)
-    const [current, setCurrent] = useState<number | undefined>(initialValue.current)
-    const [operator, setOperator] = useState<string | undefined>(initialValue.operator)
+export function CalculatorContextProvider(props: Props) {
+    const [result, setResult] = useState("")
+    const [current, setCurrent] = useState("")
+    const [operator, setOperator] = useState<string | undefined>()
 
     useEffect(() => console.log(value))
 
@@ -42,9 +42,5 @@ export function CalculatorContextProvider({ children }: Props) {
         setOperator,
     }
 
-    return (
-        <CalculatorContext.Provider value={value}>
-            {children}
-        </CalculatorContext.Provider>
-    )
+    return <CalculatorContext.Provider value={value}>{props.children}</CalculatorContext.Provider>
 }

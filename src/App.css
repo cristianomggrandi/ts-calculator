@@ -1,9 +1,12 @@
+html {
+    font-family: monospace;
+}
+
 body {
     margin: 0;
 }
 
 .App {
-    font-family: monospace;
     display: flex;
     width: 100vw;
     height: 100vh;
@@ -25,7 +28,7 @@ body {
     font-size: 1.5rem;
     justify-content: center;
     align-items: flex-end;
-    height: 3rem;
+    height: 4.5rem;
     background-color: white;
     border: black solid 2px;
     padding: 0.125rem 0.75rem;
@@ -33,8 +36,11 @@ body {
 }
 
 .display-result {
-    font-size: 1rem;
-    height: 1.125rem;
+    font-size: 1.5rem;
+}
+
+.display-current {
+    font-size: 2.25rem;
 }
 
 .keyboard {
@@ -49,11 +55,20 @@ body {
     border-radius: 1rem;
 }
 
-.number-key {
+.number {
     background-color: #0062B8;
     color: whitesmoke;
 }
 
-.symbol-key {
+.symbol {
     background-color: #0062B877;
+}
+
+.equals {
+    background-color: rgb(45, 214, 45);
+    grid-column: 3 / 5;
+}
+
+.clear {
+    background-color: rgb(249, 27, 27);
 }
