@@ -30,7 +30,7 @@ export const OperatorButton = (props: SymbolProps) => {
 }
 
 export const EqualsButton = () => {
-    const { result, current } = useContext(CalculatorContext)
+    const { result, current, setResult, setCurrent } = useContext(CalculatorContext)
 
     const handleClick = () => {
         const fullEquation = result + current
@@ -41,6 +41,9 @@ export const EqualsButton = () => {
             .replaceAll("x²", "**2")
             .replace(/√x([0-9]+)/g, "Math.sqrt($1)")
         console.log("eq: ", fullEquation, formattedEquation, "res:", eval(formattedEquation))
+
+        setCurrent("")
+        setResult(eval(formattedEquation).toString())
     }
 
     return (
