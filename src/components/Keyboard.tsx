@@ -3,7 +3,7 @@ import CalculatorContext from "../contexts/CalculadoraContext"
 import { NumberButton, OperatorButton, EqualsButton, ClearButton } from "./Buttons"
 
 const Keyboard: React.FC = (): ReactElement => {
-    const { result, setResult, current, setCurrent, operator, setOperator } = useContext(CalculatorContext)
+    const { result, setResult, current, setCurrent } = useContext(CalculatorContext)
 
     const handleNumber = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
         const button = e.target as HTMLElement
@@ -23,11 +23,17 @@ const Keyboard: React.FC = (): ReactElement => {
         }
     }
 
+    const handleSquare = () =>
+        current ? setCurrent(prev => (Number(prev) ** 2).toString()) : setResult(prev => (Number(prev) ** 2).toString())
+
+    const handleSquareRoot = () =>
+        current ? setCurrent(prev => Math.sqrt(Number(prev)).toString()) : setResult(prev => Math.sqrt(Number(prev)).toString())
+
     return (
         <div className="keyboard">
             <ClearButton />
-            <OperatorButton symbol="x²" handleClick={handleOperator} />
-            <OperatorButton symbol="√x" handleClick={handleOperator} />
+            <OperatorButton symbol="x²" handleClick={handleSquare} />
+            <OperatorButton symbol="√x" handleClick={handleSquareRoot} />
             <OperatorButton symbol="÷" handleClick={handleOperator} />
             <NumberButton number={7} handleClick={handleNumber} />
             <NumberButton number={8} handleClick={handleNumber} />
