@@ -26,8 +26,6 @@ export function CalculatorContextProvider(props: Props) {
     const [result, setResult] = useState("")
     const [current, setCurrent] = useState("")
 
-    useEffect(() => console.log(value))
-
     const value = {
         result,
         setResult,

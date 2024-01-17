@@ -1,10 +1,8 @@
-import React, { ReactElement, useContext } from "react"
+import { useContext } from "react"
 import CalculatorContext from "../contexts/CalculadoraContext"
 
 const Display = () => {
-    const { result, current, operator } = useContext(CalculatorContext)
-
-    console.log(current)
+    const { result, current } = useContext(CalculatorContext)
 
     return (
         <div className="display">

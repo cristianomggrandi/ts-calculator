@@ -1,4 +1,4 @@
-import React, { memo, ReactElement, useContext } from "react"
+import React, { ReactElement, useContext } from "react"
 import CalculatorContext from "../contexts/CalculadoraContext"
 import { NumberButton, OperatorButton, EqualsButton, ClearButton } from "./Buttons"
 
