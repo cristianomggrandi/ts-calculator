@@ -5,8 +5,6 @@ type CalculadoraContextType = {
     setResult: React.Dispatch<React.SetStateAction<string>>
     current: string | undefined
     setCurrent: React.Dispatch<React.SetStateAction<string>>
-    operator: string | undefined
-    setOperator: React.Dispatch<React.SetStateAction<string | undefined>>
 }
 
 const initialValue = {
@@ -14,8 +12,6 @@ const initialValue = {
     setResult: {} as React.Dispatch<React.SetStateAction<string>>,
     current: "",
     setCurrent: {} as React.Dispatch<React.SetStateAction<string>>,
-    operator: undefined,
-    setOperator: {} as React.Dispatch<React.SetStateAction<string | undefined>>,
 }
 
 const CalculatorContext = createContext<CalculadoraContextType>(initialValue)
@@ -29,7 +25,6 @@ type Props = {
 export function CalculatorContextProvider(props: Props) {
     const [result, setResult] = useState("")
     const [current, setCurrent] = useState("")
-    const [operator, setOperator] = useState<string | undefined>()
 
     useEffect(() => console.log(value))
 
@@ -38,8 +33,6 @@ export function CalculatorContextProvider(props: Props) {
         setResult,
         current,
         setCurrent,
-        operator,
-        setOperator,
     }
 
     return <CalculatorContext.Provider value={value}>{props.children}</CalculatorContext.Provider>
